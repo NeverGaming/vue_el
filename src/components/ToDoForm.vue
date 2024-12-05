@@ -13,7 +13,13 @@
       v-model.trim.lazy="label"
       class="input__lg"
     />  
-    <button type="submit" class="btn btn__primary btn__lg">添加</button>
+    <el-button 
+      type="primary" 
+      class="btn__lg" 
+      @click="onSubmit"
+      >
+      添加
+    </el-button>
   </form>
 </template>
 
@@ -36,3 +42,20 @@
     },
   };
 </script>
+
+<style scoped>
+/* 覆盖reset.css中的button样式 */
+.btn__lg {
+  border: 1px solid #409eff; /* Element Plus primary button border color */
+  padding: 10px 20px; /* 更新padding */
+  background-color: #409eff; /* Element Plus primary button background color */
+  color: white; /* 文字颜色 */
+  border-radius: 4px; /* 圆角边框 */
+  cursor: pointer; /* 鼠标样式 */
+  font-size: 24px; /* 字体大小 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>

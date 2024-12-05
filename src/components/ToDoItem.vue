@@ -10,16 +10,16 @@
     <label for="todo-item" class="checkbox-label">{{label}}</label>
    </div>
    <div class="btn-group">
-      <button 
-        type="button" 
-        class="btn" 
+      <el-button 
+        type="info" 
+         
         ref="editButton"
         @click="toggleToItemEditForm">
-        Edit <span class="visually-hidden">{{label}}</span>
-      </button>
-      <button type="button" class="btn btn__danger" @click="deleteToDo">
-        Delete <span class="visually-hidden">{{label}}</span>
-      </button>
+        Edit 
+      </el-button>
+      <el-button type="danger"  @click="deleteToDo">
+        Delete 
+      </el-button>
     </div>
 </div>
 <to-do-item-edit-form 
@@ -33,11 +33,13 @@
 </template>
 
 <script>
+import { ElButton } from 'element-plus'
 import ToDoItemEditForm from "./ToDoItemEditForm";
 
   export default {
     components: {
-      ToDoItemEditForm
+      ToDoItemEditForm,
+      ElButton
     },
 
     props: {
@@ -67,11 +69,9 @@ import ToDoItemEditForm from "./ToDoItemEditForm";
       itemEdited(newLabel) {
         this.$emit('item-edited', newLabel);
         this.isEditing = false;
-        this.focusOnEditButton();
       },
       editCancelled() {
         this.isEditing = false;
-        this.focusOnEditButton();
       },
       focusOnEditButton() {
         this.$nextTick(() => {
